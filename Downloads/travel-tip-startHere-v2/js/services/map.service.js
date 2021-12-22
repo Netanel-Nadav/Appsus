@@ -17,11 +17,13 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
                 zoom: 15
             })
             // console.log('Map!', gMap);
-            var marker = new google.maps.Marker({
-                position: { lat, lng },
-                gMap,
-                title: 'Happy Place'
-            });
+            // var marker = new google.maps.Marker({
+            //     position: { lat, lng },
+            //     gMap,
+            //     title: 'Happy Place'
+            // });
+            addMarker({ lat, lng });
+            // hello
         })
 }
 
