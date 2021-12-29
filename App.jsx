@@ -1,4 +1,5 @@
 import { Home } from './js/pages/app-home.jsx'
+import { AppEmail } from './js/apps/mail/pages/app-email.jsx'
 import { AppHeader } from './js/cmps/AppHeader.jsx'
 
 const Router = ReactRouterDOM.HashRouter
@@ -12,6 +13,7 @@ export function App() {
                 <AppHeader />
                 <main>
                     <Switch>
+                        <Route component={AppEmail} path="/mister-email" />
                         <Route component={Home} path="/" />
                     </Switch>
                 </main>

@@ -1,8 +1,28 @@
+import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/storage.service.js'
+
+
+export const emailService = {
+    query,
+}
+
+
+const STORAGE_KEY = 'emailDB'
+
+
+_createMails()
+
+
+function query(){
+    const emails = _loadMailsFromStorage();
+    return Promise.resolve(emails)
+}
+
 
 
 function _createMail(subject, body, to) {
     const email = {
-        id: makeId(),
+        id: utilService.makeId(),
         subject,
         body,
         isRead: false,
@@ -31,5 +51,15 @@ function _createMails() {
         to: 'rotembeneli@gmail.com'
     }
     ]
-    return emails
+    _saveMailsToStorage(emails)
+}
+
+
+
+function _saveMailsToStorage(emails) {
+    storageService.saveToStorage(STORAGE_KEY, emails)
+}
+
+function _loadMailsFromStorage() {
+    return storageService.loadFromStorage(STORAGE_KEY)
 }
