@@ -4,6 +4,7 @@ import { storageService } from '../../../services/storage.service.js'
 
 export const emailService = {
     query,
+    getEmailById,
 }
 
 
@@ -18,16 +19,17 @@ function query(){
     return Promise.resolve(emails)
 }
 
-
-
-function _createMail(subject, body, to) {
+function _createMail(subject, body, from, to, img) {
     const email = {
         id: utilService.makeId(),
         subject,
         body,
         isRead: false,
+        isStarred: false,
         sentAt: Date.now(),
         to,
+        from,
+        img,
     }
     return email
 }
@@ -38,21 +40,42 @@ function _createMails() {
         id: 'e101',
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
-        isRead: false,
-        sentAt: 1551133930594,
-        to: 'natinadav932@gmail.com'
+        isRead: true,
+        isStarred: false,
+        sentAt: Date.now(),
+        to: 'natinadav932@gmail.com',
+        from: 'aliBaba@gmail.shtuk',
+        img: '../../../img/avatar1.svg'
     },
     {
         id: 'e102',
         subject: 'Dare you Idiot!',
-        body: 'Hi im rotem',
+        body: 'Hi im rotem and i like to dont wirk and just lehistahel on you!',
         isRead: false,
-        sentAt: 1551133930594,
-        to: 'rotembeneli@gmail.com'
+        isStarred: false,
+        sentAt: Date.now(),
+        to: 'rotembeneli@gmail.com',
+        from: 'aliBaba@gmail.shtuk',
+        img: '../../../img/avatar2.svg'
     }
     ]
     _saveMailsToStorage(emails)
 }
+
+
+function getEmailById(emailId){
+    const emails = _loadMailsFromStorage()
+    var email = emails.find(email => {
+        return emailId === email.id;
+    })
+    return Promise.resolve(email)
+}
+
+
+function getRandomAvatar(){
+
+}
+
 
 
 

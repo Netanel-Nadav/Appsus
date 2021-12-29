@@ -7,9 +7,8 @@
 @import "./cmps/app-header.css";
 
 
-
-
-
 /* Email CMPS */
 
-@import "./apps/email/email-list.css"
+@import "./apps/email/email-details.css";
+@import "./apps/email/email-preview.css";
+@import "./apps/email/email-list.css";

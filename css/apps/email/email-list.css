@@ -14,3 +14,23 @@ table td {
     padding: 10px 50px;
 }
 
+
+
+.mail-info {
+    flex-basis: 80%
+}
+
+
+.email img{
+    width: 100px;
+    height: 100px;
+}
+
+.email {
+    padding: 20px;
+    color: black
+}
+
+.email a{
+    color: black;
+}

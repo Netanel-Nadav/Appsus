@@ -12,18 +12,27 @@ export class AppEmail extends React.Component {
     componentDidMount() {
         this.loadMails()
     }
-    
+
     loadMails = () => {
         emailService.query().then(emails => {
-            this.setState({emails})
+            this.setState({ emails })
         })
     }
-    
-    render (){
+
+    markReadEmail = (emailId) => {
+        emailService.getEmailById(emailId)
+            .then(email => {
+                email.isRead = true
+                console.log(email);
+            })
+    }
+
+
+    render() {
         const { emails } = this.state
         return (
             <section className="home">
-                    {emails && <EmailList emails={emails}/>}
+                {emails && <EmailList emails={emails} markReadEmail={this.markReadEmail} />}
             </section>
         )
     }
