@@ -1,13 +1,9 @@
-.note-preview {
-    background-color: lightblue;
-}
-
-.note-btn {
+.bar-btn {
     background-color: transparent;
     border: none;
     font-size: 1.2rem;
 }
 
-.note-btn:hover {
+.bar-btn:hover {
     transform: scale(1.2);
 }
