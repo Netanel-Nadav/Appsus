@@ -1,0 +1,10 @@
+
+aside button {
+    padding: 20px 100px;
+    background: none;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.247);
+    cursor: pointer;
+    margin-top: 1.2rem;
+}

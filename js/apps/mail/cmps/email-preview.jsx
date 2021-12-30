@@ -5,9 +5,7 @@ const { Link } = ReactRouterDOM
 
 
 export function EmailPreview({ email, markReadEmail }) {
-    // console.log(markReadEmail);
-    // console.log(email);
-    let { id, body, sentAt, subject, to, img, isRead } = email
+    const { id, body, sentAt, subject, to, img, isRead } = email
     const readMail = isRead ? 'readMail' : ''
     return (
         <Link to={`/mister-email/${email.id}`}>
@@ -17,31 +15,11 @@ export function EmailPreview({ email, markReadEmail }) {
                     <h1>{subject}</h1>
                     <p>{body}</p>
                 </div>
-                <button>&#9733;</button>
-
+                <div className="btn-container flex">
+                    <button><i className="fas fa-trash"></i></button>
+                    <button><i className="far fa-star"></i></button>
+                </div>
             </div>
         </Link>
     )
 }
-
-
-
-
-
-{/* <section className="email-preview flex align-center space-between">
-<h1>{to}</h1>
-<p>{subject}</p>
-<p>{body}</p>
-</section> */}
-
-
-
-
-
-// Table
-
-// <tr>
-// <td>{to}</td>
-// <td>{body}</td>
-// <td>{sentAt}</td>
-// </tr>

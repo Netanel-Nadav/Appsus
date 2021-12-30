@@ -1,0 +1,17 @@
+.filter-section {
+    width: 300px;
+}
+
+
+.filter-section ul li{
+    padding: 20px;
+    cursor: pointer;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.filter-section ul li:hover {
+    background-color: rgba(221, 40, 40, 0.829);
+
+    
+}

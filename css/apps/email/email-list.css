@@ -28,7 +28,8 @@ table td {
 
 .email {
     padding: 20px;
-    color: black
+    color: black;
+    gap: 15px
 }
 
 .email a{
