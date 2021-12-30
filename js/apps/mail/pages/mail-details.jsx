@@ -11,7 +11,6 @@ export class MaillDetails extends React.Component {
 
 
     componentDidMount() {
-        // console.log('props in mail-details', this.props);
         this.loadMail()
     }
 
@@ -23,20 +22,12 @@ export class MaillDetails extends React.Component {
         })
     }
 
-    markAsRead = () => {
-        const { emailId } = this.props.match.params
-        emailService.getEmailById(emailId).then(email => {
-            email.isRead = true;
-            this.setState({ email })
-        })
-    }
-
     onGoBack = () => {
         this.props.history.push('/mister-email')
     }
 
 
-    onDeleteMail = () => {
+    onRemoveMail = () => {
         const { id } = this.state.email
         emailService.removeEmail(id).then(() => {
             this.onGoBack()
@@ -44,9 +35,7 @@ export class MaillDetails extends React.Component {
     }
 
     render() {
-        // const { subject, body, sentAt, to } = this.state.email
         const { email } = this.state
-        // console.log('email in mail-details' , email);
         return (
             this.state.email && <section className="mail-details">
                 <div className="email-container">
@@ -57,7 +46,7 @@ export class MaillDetails extends React.Component {
                     <h2>{email.subject}</h2>
                     <p>{email.body}</p>
                     <button className="btn" onClick={this.onGoBack}><i className="fas fa-backward"></i></button>
-                    <button className="btn" onClick={this.onDeleteMail}><i className="fas fa-trash"></i></button>
+                    <button className="btn" onClick={this.onRemoveMail}><i className="fas fa-trash"></i></button>
                 </div>
             </section>
         )

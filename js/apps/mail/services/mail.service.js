@@ -7,7 +7,9 @@ export const emailService = {
     getEmailById,
     removeEmail,
     markAsRead,
-    saveEmail
+    saveEmail,
+    moveToTrash,
+    toogleExpand,
 }
 
 
@@ -25,18 +27,39 @@ function query(filterBy = null) {
 }
 
 
+function toogleExpand(emailId){
+    const emails = _loadMailsFromStorage();
+    const email = emails.find(email => {
+        return email.id === emailId;
+    })
+    email.isExpand = !email.isExpand;
+    _saveMailsToStorage(emails);
+    return Promise.resolve()
+}
 
-function _getFilteredEmails(emails, filterBy){
+
+
+function _getFilteredEmails(emails, filterBy) {
     return emails.filter(email => {
         return email.status === filterBy
     })
 }
 
 
+function moveToTrash(emailId) {
+    let emails = _loadMailsFromStorage()
+    let email = emails.find(email => {
+        console.log(email)
+        return email.id === emailId
+    })
+    email.status = 'trash'
+    _saveMailsToStorage(emails);
+    return Promise.resolve()
+}
+
+
 function markAsRead(id) {
-    console.log(id);
     const emails = _loadMailsFromStorage();
-    console.log(emails);
     const email = emails.find(email => {
         return email.id === id;
     })
@@ -50,16 +73,18 @@ function _createMail(subject, body, from, emailto, img) {
         id: utilService.makeId(),
         subject,
         body,
-        status: 'inbox',
+        status: 'sent',
         isRead: false,
         isStarred: false,
         sentAt: Date.now(),
         emailto,
         from,
         img,
+        isExpand: false
     }
     return email
 }
+
 
 function saveEmail(newEmail) {
     console.log('email in save', newEmail);
@@ -75,7 +100,7 @@ function saveEmail(newEmail) {
 
 function _createMails() {
     const emails = [{
-        id: 'e101',
+        id: utilService.makeId(),
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         status: 'inbox',
@@ -84,22 +109,24 @@ function _createMails() {
         sentAt: Date.now(),
         to: 'natinadav932@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar1.svg'
+        img: '../../../img/avatar1.svg',
+        isExpand: false,
     },
     {
-        id: 'e102',
+        id: utilService.makeId(),
         subject: 'Dare you Idiot!',
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
-        status: 'inbox',
+        status: 'draft',
         isRead: false,
         isStarred: false,
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg'
+        img: '../../../img/avatar2.svg',
+        isExpand: false,
     },
     {
-        id: 'e103',
+        id: utilService.makeId(),
         subject: 'Ma kore Veze!',
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
         status: 'sent',
@@ -108,10 +135,11 @@ function _createMails() {
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg'
+        img: '../../../img/avatar2.svg',
+        isExpand: false,
     },
     {
-        id: 'e104',
+        id: utilService.makeId(),
         subject: 'Eize Lama Stam',
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
         status: 'trash',
@@ -120,10 +148,11 @@ function _createMails() {
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg'
+        img: '../../../img/avatar2.svg',
+        isExpand: false,
     },
     {
-        id: 'e105',
+        id: utilService.makeId(),
         subject: 'Eize Layila lefaninu',
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
         status: 'draft',
@@ -132,8 +161,48 @@ function _createMails() {
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar1.svg'
-    }
+        img: '../../../img/avatar1.svg',
+        isExpand: false,
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Eize Lama Stam',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
+        status: 'inbox',
+        isRead: false,
+        isStarred: true,
+        sentAt: Date.now(),
+        to: 'rotembeneli@gmail.com',
+        from: 'aliBaba@gmail.shtuk',
+        img: '../../../img/avatar2.svg',
+        isExpand: false,
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Eize Lama Stam',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
+        status: 'inbox',
+        isRead: false,
+        isStarred: true,
+        sentAt: Date.now(),
+        to: 'rotembeneli@gmail.com',
+        from: 'aliBaba@gmail.shtuk',
+        img: '../../../img/avatar2.svg',
+        isExpand: false,
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Eize Lama Stam',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
+        status: 'inbox',
+        isRead: false,
+        isStarred: true,
+        sentAt: Date.now(),
+        to: 'rotembeneli@gmail.com',
+        from: 'aliBaba@gmail.shtuk',
+        img: '../../../img/avatar2.svg',
+        isExpand: false,
+    },
     ]
     _saveMailsToStorage(emails)
     return emails

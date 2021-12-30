@@ -11,12 +11,10 @@ export class EmailFilter extends React.Component {
         // console.log(this.props);
     }
     
-
-    
-
     render() {
     
         const setNull = null;
+        const inbox = 'inbox';
         return (
             <section className="filter-section">
                 <ul className="clean-list">

@@ -1,19 +1,9 @@
-table {
-    background-color: lightgrey;
-    width: 100%;
-}
 
-table th {
-    background-color: black;
-    color: white;
-    padding: 20px;
+.emails-list {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    width:100%
 }
-
-table td {
-    border-bottom: 1px solid black;
-    padding: 10px 50px;
-}
-
 
 
 .mail-info {
@@ -29,9 +19,63 @@ table td {
 .email {
     padding: 20px;
     color: black;
-    gap: 15px
+    gap: 15px;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+    /* margin: 5px; */
+    transition: padding 1s;
+}
+
+
+.email:hover {
+    background-color: rgba(167, 167, 167, 0.199);
 }
 
 .email a{
     color: black;
+    align-items: center;
+    padding: 0.750rem;
+    
+}
+
+.email.expand { 
+    padding: 100px 10px;
+    /* height: 300px; */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    transition: padding 1s;
+}
+
+
+.btn-container {
+    gap: 10px;
+}
+
+.btn-container button {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+
+.btn-container .btn-trash:hover {
+    background-color: red;
+    color: white;
+    transition: background 1s;
+}
+
+.btn-container .btn-star:hover {
+    background-color: gold;
+    color: black;
+    transition: background 1s;
+}
+
+.btn-container .btn-expand:hover{
+    background-color: black;
+    color: white;
+    transition: background 1s;
 }
