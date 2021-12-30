@@ -1,0 +1,9 @@
+.bar-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.bar-btn:hover {
+    transform: scale(1.2);
+}

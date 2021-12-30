@@ -1,0 +1,17 @@
+.note-preview {
+    background-color: #33ccff;
+}
+
+.note-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.note-btn:hover {
+    transform: scale(1.2);
+}
+
+.note-btns {
+    right: 2px;
+}

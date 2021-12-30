@@ -9,6 +9,7 @@
 
 /* Email CMPS */
 
+<<<<<<< HEAD
 @import "./apps/email/email-home.css";
 @import "./apps/email/email-aside.css";
 @import "./apps/email/email-filter.css";
@@ -16,3 +17,17 @@
 @import "./apps/email/email-details.css";
 @import "./apps/email/email-preview.css";
 @import "./apps/email/email-list.css";
+=======
+@import "./apps/email/email-details.css";
+@import "./apps/email/email-preview.css";
+@import "./apps/email/email-list.css";
+@import "./apps/email/email-list.css";
+
+/* Keep CMPS */
+
+@import "./apps/keep/note-preview.css";
+@import "./apps/keep/note-list.css";
+@import "./apps/keep/note-bar.css";
+
+/* he */
+>>>>>>> 6903fac7ba9af8a2bec3e4aa1a60b7409231d6e5
