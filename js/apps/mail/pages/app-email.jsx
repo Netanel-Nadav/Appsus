@@ -29,8 +29,8 @@ export class AppEmail extends React.Component {
     }
 
     onSetFilter = (filterBy) => {
-        console.log(filterBy);
-        this.setState({ filterBy }, this.loadMails)
+        console.log('filterBy at app-email', filterBy);
+        this.setState({ filterBy}, this.loadMails)
     }
 
 
@@ -46,13 +46,20 @@ export class AppEmail extends React.Component {
     }
 
 
+    onFiltering = ({ target }) => {
+        var status = target.dataset.status
+        console.log(status);
+         this.onSetFilter(status)
+    }
+
+
     render() {
         const { emails, isAddEmailShown } = this.state
         return (
             <section className="home flex main-layout">
                 <aside>
                 <button onClick={this.onSendEmail}><i className="fas fa-plus"></i> Compose</button>
-                <EmailFilter onSetFilter={this.onSetFilter}/>
+                <EmailFilter onSetFilter={this.onSetFilter} onFiltering={this.onFiltering} />
                 </aside>
                     {isAddEmailShown && <Compose onSendEmail={this.onSendEmail} />}
                 {!isAddEmailShown && emails && <EmailList emails={emails} markReadEmail={this.markReadEmail} />}

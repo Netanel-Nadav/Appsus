@@ -33,7 +33,6 @@ function _getFilteredEmails(emails, filterBy){
 }
 
 
-
 function markAsRead(id) {
     console.log(id);
     const emails = _loadMailsFromStorage();
