@@ -57,51 +57,52 @@ function query() {
     return Promise.resolve(notes);
 }
 
-function _createNote(type) {
-    switch (type) {
-        case 'note-txt':
-            return {
-                id,
-                type,
-                isPinned: false,
-                info: {
-                    txt: ''
-                },
-                style: {
-                    backgroundColor: "#FFF"
+function _createNoteOfTxt(type, txt) {
+    return {
+        id,
+        type,
+        isPinned: false,
+        info: {
+            txt
+        },
+        style: {
+            backgroundColor: "#33ccff"
+        }
+    }
+}
+
+function _createNoteOfImg(type, url) {
+    return {
+        id,
+        type,
+        isPinned: false,
+        info: {
+            url,
+            title: ''
+        },
+        style: {
+            backgroundColor: "#33ccff"
+        }
+    }
+}
+
+function _createNoteOfTodo(type) {
+    return {
+        id,
+        type,
+        isPinned: false,
+        info: {
+            label: '',
+            todos: [
+                {
+                    txt: '',
+                    doneAt: null
                 }
-            }
-        case 'note-img':
-            return {
-                id,
-                type,
-                isPinned: false,
-                info: {
-                    url: '',
-                    title: ''
-                },
-                style: {
-                    backgroundColor: "#FFF"
-                }
-            }
-        case 'note-todos':
-            return {
-                id,
-                type,
-                isPinned: false,
-                info: {
-                    label: '',
-                    todos: [
-                        {
-                            txt: '',
-                            doneAt: null
-                        }
-                    ]
-                },
-                style: {
-                    backgroundColor: "#FFF"
-                }
-            }
+            ]
+        },
+        style: {
+            backgroundColor: "#33ccff"
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 .note-preview {
-    background-color: lightblue;
+    background-color: #33ccff;
 }
 
 .note-btn {
@@ -10,4 +10,8 @@
 
 .note-btn:hover {
     transform: scale(1.2);
+}
+
+.note-btns {
+    right: 2px;
 }
