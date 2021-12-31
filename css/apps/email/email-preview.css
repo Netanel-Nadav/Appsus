@@ -3,6 +3,19 @@
 }
 
 
+.email.star {
+    background-color: rgba(255, 217, 0, 0.116);
+}
+
+.email.star .btn-star {
+    background-color: gold;
+    color: black;
+}
+
+small {
+    color: #0000005e;
+}
+
 .email a {
     display: flex;
     gap: 15px;

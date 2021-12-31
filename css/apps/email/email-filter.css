@@ -8,10 +8,15 @@
     cursor: pointer;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
+    width: 92%;
+    margin: 10px 0px
+}
+
+
+.filter-section ul li:active {
+    background-color: rgba(221, 40, 40, 0.829);
 }
 
 .filter-section ul li:hover {
     background-color: rgba(221, 40, 40, 0.829);
-
-    
 }
