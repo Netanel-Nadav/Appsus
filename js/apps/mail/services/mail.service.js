@@ -29,7 +29,7 @@ function query(filterBy = null) {
 }
 
 
-function toogleExpand(emailId){
+function toogleExpand(emailId) {
     const emails = _loadMailsFromStorage();
     const email = emails.find(email => {
         return email.id === emailId;
@@ -60,12 +60,14 @@ function moveToTrash(emailId) {
     return Promise.resolve()
 }
 
-function starEmail(emailId){
+function starEmail(emailId) {
     let emails = _loadMailsFromStorage();
     let email = emails.find(email => {
         return email.id === emailId
     })
+    emails.sort((a, b) => b.isStarred - a.isStarred)
     email.isStarred = !email.isStarred
+    // console.log(emails);
     _saveMailsToStorage(emails)
     return Promise.resolve()
 }
@@ -140,7 +142,7 @@ function _createMails() {
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         status: 'sent',
-        isRead: true,
+        isRead: false,
         isStarred: false,
         sentAt: Date.now(),
         to: 'natinadav932@gmail.com',
@@ -180,7 +182,7 @@ function _createMails() {
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
         status: 'trash',
         isRead: false,
-        isStarred: true,
+        isStarred: false,
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
@@ -193,7 +195,7 @@ function _createMails() {
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
         status: 'draft',
         isRead: false,
-        isStarred: true,
+        isStarred: false,
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
@@ -206,7 +208,7 @@ function _createMails() {
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
         status: 'inbox',
         isRead: false,
-        isStarred: true,
+        isStarred: false,
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
@@ -219,7 +221,7 @@ function _createMails() {
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
         status: 'inbox',
         isRead: false,
-        isStarred: true,
+        isStarred: false,
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
@@ -232,7 +234,7 @@ function _createMails() {
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim. Ultrices vitae auctor eu augue ut lectus.',
         status: 'inbox',
         isRead: false,
-        isStarred: true,
+        isStarred: false,
         sentAt: Date.now(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',

@@ -1,0 +1,28 @@
+@font-face {
+    font-family: oleo;
+    src: url('../../fonts/OleoScript-Regular.ttf');
+};
+
+
+@font-face {
+    font-family: oleoBold;
+    src: url('../../fonts/OleoScript-Bold.ttf');
+};
+
+
+@font-face {
+    font-family: encode;
+    src: url('../../fonts/EncodeSansCondensed-Regular.ttf');
+};
+
+
+@font-face {
+    font-family: encodeBold;
+    src: url('../../fonts/EncodeSansCondensed-Bold.ttf');
+};
+
+
+@font-face {
+    font-family: encodeLight;
+    src: url('../../fonts/EncodeSansCondensed-Light.ttf');
+};

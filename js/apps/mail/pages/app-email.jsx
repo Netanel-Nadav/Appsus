@@ -43,7 +43,6 @@ export class AppEmail extends React.Component {
         this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, isRead: filterByRead } }), this.loadMails)
     }
 
-
     onSendEmail = () => {
         const { isAddEmailShown } = this.state
         this.setState({ isAddEmailShown: !isAddEmailShown })
@@ -60,7 +59,6 @@ export class AppEmail extends React.Component {
             .then(this.loadMails)
     }
 
-
     onExpandEmail = (emailId) => {
         emailService.toogleExpand(emailId)
             .then(this.loadMails)
@@ -72,14 +70,12 @@ export class AppEmail extends React.Component {
     }
 
     render() {
-        console.log(this.state.emails);
-        console.log(this.state);
         const { emails, isAddEmailShown } = this.state
         return (
             <section className="home main-layout">
                 <div className="home-filter flex justify-center">
                     <EmailFilterByRead onReadFiltering={this.onReadFiltering} />
-                    <EmailFilterByStar onReadFiltering={this.onReadFiltering} />
+                    {/* <EmailFilterByStar onReadFiltering={this.onReadFiltering} /> */}
                 </div>
                 <div className="main-site flex">
                     <aside>

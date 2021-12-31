@@ -1,9 +1,11 @@
+@import "./parts/fonts.css";
 @import "./parts/base.css";
 @import "./parts/helpers.css";
 
 
 /* CMPS */
 
+@import "./cmps/app-home.css";
 @import "./cmps/app-header.css";
 
 

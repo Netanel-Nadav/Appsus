@@ -1,4 +1,50 @@
+
+
+.email-container {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+    /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
+}
+
+.email-container .email-head{
+    gap: 20px;
+    padding: 1rem;
+}
+
+.email-container .email-head h2{
+    margin-bottom: 0.4rem;
+}
+
+.email-container .email-head .title-subject-warrper{
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.email-container .email-body {
+    padding: 5rem 3rem;
+}
+
+
 .email-container img {
     width: 150px;
     border-radius: 50%;
+}
+
+.email-container .btn-container{
+    /* background-color: #e6e6e6; */
+    padding: 3rem;
+}
+
+
+.email-container .btn-container button {
+    border-radius: 3px;
+    width: 25%;
+}
+
+.email-container .btn-container .btn-back:hover {
+    background-color: darkgray;
+    color: white;
+    transition: background 1s;
 }

@@ -37,16 +37,26 @@ export class MaillDetails extends React.Component {
     render() {
         const { email } = this.state
         return (
-            this.state.email && <section className="mail-details">
+            this.state.email && <section className="mail-details main-layout">
                 <div className="email-container">
-                    <h1>New Messege From: {email.to}</h1>
-                    <img src={email.img} />
-
+                    <div className="email-head flex">
+                        <img src={email.img} />
+                        <div className="title-subject-warrper flex">
+                            <h2>New Messege From:</h2>
+                            <h3>{email.to}</h3>
+                            <p>{email.subject}</p>
+                        </div>
+                    </div>
                     <hr />
-                    <h2>{email.subject}</h2>
-                    <p>{email.body}</p>
-                    <button className="btn" onClick={this.onGoBack}><i className="fas fa-backward"></i></button>
-                    <button className="btn" onClick={this.onRemoveMail}><i className="fas fa-trash"></i></button>
+                    <div className="email-body">
+                        <h2>{email.subject}</h2>
+                        <p>{email.body}</p>
+                    </div>
+                    <hr />
+                    <div className="btn-container flex justify-center align-center">
+                        <button className="btn btn-back" onClick={this.onGoBack}><i className="fas fa-backward"></i></button>
+                        <button className="btn btn-trash" onClick={this.onRemoveMail}><i className="fas fa-trash"></i></button>
+                    </div>
                 </div>
             </section>
         )

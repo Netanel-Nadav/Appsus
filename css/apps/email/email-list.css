@@ -12,8 +12,14 @@
 
 
 .email img{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    border-radius: 50%;
+
+}
+
+.email h1 {
+    margin: 0;
+    padding: 0;
 }
 
 .email {
@@ -24,19 +30,31 @@
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
     /* margin: 5px; */
     transition: padding 1s;
+    /* height: 100px; */
+    
 }
 
+
+
+/* .email p {
+    white-space: nowrap;
+    text-overflow:ellipsis; 
+    overflow: hidden;
+} */
 
 .email:hover {
     background-color: rgba(167, 167, 167, 0.199);
 }
 
-.email a{
+.email a {
     color: black;
     align-items: center;
     padding: 0.750rem;
     
 }
+
+
+
 
 .email.expand { 
     padding: 100px 10px;

@@ -1,6 +1,7 @@
 .header {
     background-color: rgb(73, 73, 73);
     color: white;
+    font-family: encodeBold, sans-serif;
 }
 
 .header nav ul li{
@@ -14,4 +15,14 @@
     line-height: 65px;
     width: 100px;
     text-align: center;
+}
+
+.header .logo {
+    font-family: oleo, sans-serif;
+    font-size: 2rem;
+    margin-inline-start: 0.7rem;
+}
+
+.header .logo span {
+    color: yellow;
 }
