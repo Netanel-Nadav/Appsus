@@ -1,0 +1,20 @@
+.book-preview {
+    background-color: darkgray;
+    text-align: center;
+}
+
+.book-preview img {
+    width: 100%;
+}
+
+.book-on-sale {
+    color: red;
+}
+
+.book-price .book-price-red{
+    color:red
+}
+
+.book-price .book-price-green {
+    color: green;
+}

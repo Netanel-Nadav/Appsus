@@ -1,0 +1,17 @@
+.header {
+    background-color: rgb(73, 73, 73);
+    color: white;
+}
+
+.header nav ul li{
+   margin-inline-end: 2rem;
+}
+
+
+.header nav ul li a{
+    display: block;
+    height: 65px;
+    line-height: 65px;
+    width: 100px;
+    text-align: center;
+}

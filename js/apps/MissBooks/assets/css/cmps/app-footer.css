@@ -1,0 +1,6 @@
+footer {
+    background-color: blanchedalmond;
+    height: 200px;
+
+    transition: background .5s
+}

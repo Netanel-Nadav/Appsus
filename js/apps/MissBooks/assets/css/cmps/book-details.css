@@ -1,0 +1,25 @@
+.book-details-container {
+    gap: 25px
+}
+
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex-basis: 50%;
+}
+
+.book-details-container .imgs-container{
+    flex-basis: 50%;
+    position: relative;
+}
+
+.book-details-container .on-sale-img {
+    position: absolute;
+    width: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

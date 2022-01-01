@@ -1,0 +1,21 @@
+.user-msg {
+    position: fixed;
+    background-color: lightgray;
+    width: 50%;
+    height: 250px;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0,0,0, 0.75);
+}
+
+
+.user-msg-success {
+    background-color: lime;
+}
+
+
+.user-msg-danger {
+    background-color: red;
+}

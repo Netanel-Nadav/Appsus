@@ -1,0 +1,14 @@
+.color {
+    width: 30px;
+    height: 30px;
+    background-color: silver;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+
+    transition: .2s;
+}
+
+.color:hover{
+    transform: scale(1.2);
+}

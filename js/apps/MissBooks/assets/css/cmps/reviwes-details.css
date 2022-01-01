@@ -1,0 +1,9 @@
+.user-review {
+    gap: 15px;
+    margin-bottom: 1.2rem;
+}
+
+
+.review {
+    flex-basis: 150%;
+}
