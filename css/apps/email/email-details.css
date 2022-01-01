@@ -33,7 +33,7 @@
 }
 
 .email-container .btn-container{
-    /* background-color: #e6e6e6; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 3rem;
 }
 

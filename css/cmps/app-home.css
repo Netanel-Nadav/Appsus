@@ -29,11 +29,22 @@
     background: none;
     border: 2px solid yellow;
     text-transform: uppercase;
+    margin: 20px;
 }
 
 .hero button:hover {
     background-color: yellow;
     color: black;
     transition: background 1s;
-    /* transition: color 1s; */
+}
+
+
+.hero .btn-keep {
+    color: salmon;
+    border: 2px solid salmon;
+}
+
+.hero .btn-keep:hover {
+    color: black;
+    background-color: salmon;
 }

@@ -12,8 +12,6 @@
 
 
 .emails-list {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
     width:100%
 }
 
@@ -32,26 +30,28 @@
 .email h1 {
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    margin: 3px;
+    -webkit-box-orient: vertical;
 }
 
 .email {
     padding: 20px;
     color: black;
     gap: 15px;
-    border-top: 0.5px solid rgba(0, 0, 0, 0.2);
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
-    /* margin: 5px; */
     transition: padding 1s;
     height: 100px;
-    
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
-
 
 .email .mail-body {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     margin: 3px;
     -webkit-box-orient: vertical;
 }

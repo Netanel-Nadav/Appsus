@@ -87,11 +87,10 @@ export class AppEmail extends React.Component {
         const { emails, isAddEmailShown } = this.state
         return (
             <section className="home main-layout">
-                <div className="home-filter flex justify-center">
+                <div className="home-filter flex">
                     <EmailSearchFilter onSearchFiltering={this.onSearchFiltering} />
                     <EmailFilterByRead onReadFiltering={this.onReadFiltering} />
                     <EmailFilterByStar onStarFiltering={this.onStarFiltering} />
-                    <EmailUnreadCount countUnreadEmails={this.countUnreadEmails()} />
                 </div>
                 <div className="main-site flex">
                     <aside>
@@ -100,7 +99,9 @@ export class AppEmail extends React.Component {
                     </aside>
                     {isAddEmailShown && <Compose onSendEmail={this.onSendEmail} />}
                     {!isAddEmailShown && emails && <EmailList emails={emails} markReadEmail={this.markReadEmail} onMoveToTrash={this.onMoveToTrash} onExpandEmail={this.onExpandEmail} onStarredEmail={this.onStarredEmail} />}
+                    
                 </div>
+                <EmailUnreadCount countUnreadEmails={this.countUnreadEmails()} />
             </section>
         )
     }
