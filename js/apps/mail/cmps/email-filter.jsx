@@ -13,6 +13,7 @@ export class EmailFilter extends React.Component {
     
     render() {
     
+        const setUndifind = undefined
         const setNull = null;
         const inbox = 'inbox';
         return (

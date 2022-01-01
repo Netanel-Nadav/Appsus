@@ -20,10 +20,10 @@ const STORAGE_KEY = 'emailDB'
 
 
 function query(filterBy = null) {
-    // console.log('in-Service',filterBy);
+    console.log('in-Service',filterBy);
     let emails = _loadMailsFromStorage() || _createMails()
     if (emails.length === 0) emails = _createMails()
-    if (!filterBy || filterBy.isRead === 'all' && filterBy.status === 'inbox') return Promise.resolve(emails)
+    if (!filterBy || filterBy.isRead === undefined && filterBy.status === 'inbox') return Promise.resolve(emails)
     const filteredEmails = _getFilteredEmails(emails, filterBy)
     return Promise.resolve(filteredEmails)
 }
@@ -41,10 +41,11 @@ function toogleExpand(emailId) {
 
 
 function _getFilteredEmails(emails, filterBy) {
-    // console.log(emails);
+    console.log(emails);
     console.log(filterBy);
     return emails.filter(email => {
-        return email.status === filterBy.status && email.isRead === filterBy.isRead
+        const filterIsRead = filterBy.isRead === undefined || email.isRead === filterBy.isRead
+        return email.status === filterBy.status && filterIsRead
     })
 }
 

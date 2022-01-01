@@ -1,18 +1,18 @@
 const { Link } = ReactRouterDOM
 
-
 import { emailService } from '../services/mail.service.js'
 import { EmailList } from '../cmps/email-list.jsx'
 import { Compose } from '../cmps/email-compose.jsx'
 import { EmailFilter } from '../cmps/email-filter.jsx'
 import { EmailFilterByRead } from '../cmps/email-filter-by-read.jsx'
 import { EmailFilterByStar } from '../cmps/email-filter-by-star.jsx'
+import { EmailSearchFilter } from '../cmps/email-filter-by-search.jsx'
 
 export class AppEmail extends React.Component {
     state = {
         emails: null,
         isAddEmailShown: false,
-        filterBy: { status: 'inbox', isRead: 'all' },
+        filterBy: { status: 'inbox', isRead: undefined },
         isExpanded: false,
 
     }
@@ -66,7 +66,7 @@ export class AppEmail extends React.Component {
 
     onStarredEmail = (emailId) => {
         emailService.starEmail(emailId)
-        .then(this.loadMails)
+            .then(this.loadMails)
     }
 
     render() {
@@ -74,6 +74,7 @@ export class AppEmail extends React.Component {
         return (
             <section className="home main-layout">
                 <div className="home-filter flex justify-center">
+                    <EmailSearchFilter />
                     <EmailFilterByRead onReadFiltering={this.onReadFiltering} />
                     {/* <EmailFilterByStar onReadFiltering={this.onReadFiltering} /> */}
                 </div>

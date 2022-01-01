@@ -3,8 +3,10 @@ import { EmailPreview } from './email-preview.jsx'
 
 export function EmailList({ emails, markReadEmail, onMoveToTrash, onExpandEmail, onStarredEmail }) {
     if (!emails.length) return  (
+    <div className="no-mails-warrper flex justify-center align-center">
+        <h1>No Mails to show</h1>
+    </div>
     
-    <h1>No Mails To Show</h1>
     )
     return (
         <section className="emails-list">
