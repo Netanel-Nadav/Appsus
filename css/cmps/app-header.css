@@ -7,6 +7,11 @@
     font-family: oleo, sans sans-serif;
     font-size: 2rem;
     margin-inline-start: 1rem;
+    color: white;
+}
+
+.header .logo:active {
+    color: salmon;
 }
 
 .header .logo .logo-dot {

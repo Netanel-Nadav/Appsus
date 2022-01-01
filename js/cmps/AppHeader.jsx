@@ -8,7 +8,7 @@ export function AppHeader() {
         <header className="header">
         
             <nav className="flex space-between align-center main-layout">
-                <div className="logo">Apsus<span className="logo-dot">.</span></div>
+                <NavLink to="/"><div className="logo">Apsus<span className="logo-dot">.</span></div></NavLink>
                 <ul className="nav clean-list flex">
                     <li> <NavLink activeClassName="my-active" exact to="/">Home</NavLink></li>
                     {/* <li><NavLink to="/about">About</NavLink></li> */}
