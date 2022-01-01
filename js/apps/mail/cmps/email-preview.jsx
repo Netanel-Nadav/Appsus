@@ -7,12 +7,12 @@ export function EmailPreview({ email, markReadEmail, onMoveToTrash, onExpandEmai
     const expand = isExpand ? 'expand' : ''
     const star = isStarred ? 'star' : ''
     return (
-        <div className={`email flex space-between align-center ${readMail} ${expand} ${star}`} onClick={() => markReadEmail(id)}>
-            <Link to={`/mister-email/${email.id}`}>
+        <div className={`email flex space-between align-center ${readMail} ${expand} ${star}`}>
+            <Link to={`/mister-email/${email.id}`} onClick={() => markReadEmail(id)}>
                 <img src={img} />
                 <div className="mail-info">
                     <h1>{subject}</h1>
-                    <p>{body}</p>
+                    <p className={`mail-body ${expand}`}>{body}</p>
                     <small>{status}</small>
                 </div>
             </Link>

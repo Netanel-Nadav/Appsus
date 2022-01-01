@@ -3,23 +3,23 @@
 export class EmailFilterByStar extends React.Component {
     state = {
         filterBy: {
-            isStarred: false
+            isStarred: undefined
         }
     }
 
     handleChange = ({ target }) => {
-        const booleanVal = target.value === 'true' ? true : target.value === 'false' ? false : undefined
-        this.props.onReadFiltering(booleanVal)
+        const starredFilter = target.value === 'Fiter By Star' ? undefined : target.value === 'true';
+        this.setState({ isStarred: starredFilter })
+        this.props.onStarFiltering(starredFilter)
     }
 
 
     render() {
-        const { isRead } = this.state.filterBy
-        const setUndifind = undefined
+        const { isStarred } = this.state.filterBy
         return (
-            <section className="filter-by-read-section">
-                <select className="select-read" value={setUndifind} onChange={this.handleChange} name="isRead">
-                    <option value={setUndifind}>Sttared / UnStarred</option>
+            <section className="filter-by-star-section">
+                <select className="select-star" value={isStarred} onChange={this.handleChange} name="isStarred">
+                    <option value={undefined}>Fiter By Star</option>
                     <option value={true}>Starred</option>
                     <option value={false}>UnStarred</option>
                 </select>

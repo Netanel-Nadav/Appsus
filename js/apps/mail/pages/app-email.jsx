@@ -7,12 +7,13 @@ import { EmailFilter } from '../cmps/email-filter.jsx'
 import { EmailFilterByRead } from '../cmps/email-filter-by-read.jsx'
 import { EmailFilterByStar } from '../cmps/email-filter-by-star.jsx'
 import { EmailSearchFilter } from '../cmps/email-filter-by-search.jsx'
+import { EmailUnreadCount } from '../cmps/email-unread-count.jsx'
 
 export class AppEmail extends React.Component {
     state = {
-        emails: null,
+        emails: [],
         isAddEmailShown: false,
-        filterBy: { status: 'inbox', isRead: undefined },
+        filterBy: { status: 'inbox', isRead: undefined, search: '', isStarred: undefined },
         isExpanded: false,
 
     }
@@ -35,7 +36,7 @@ export class AppEmail extends React.Component {
     onFiltering = ({ target }) => {
         const status = target.dataset.status
         console.log(this.state);
-        this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, status: status } }), this.loadMails)
+        this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, status } }), this.loadMails)
     }
 
     onReadFiltering = (filterByRead) => {
@@ -43,11 +44,20 @@ export class AppEmail extends React.Component {
         this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, isRead: filterByRead } }), this.loadMails)
     }
 
+    onSearchFiltering = (filterBySearch) => {
+        this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, search: filterBySearch } }), this.loadMails)
+    }
+
+    onStarFiltering = (isStarred) => {
+        this.setState((prevState) => ({ filterBy: { ...prevState.filterBy, isStarred } }), this.loadMails)
+    }
+
     onSendEmail = () => {
         const { isAddEmailShown } = this.state
         this.setState({ isAddEmailShown: !isAddEmailShown })
         this.loadMails()
     }
+
 
     onGoBack = () => {
         this.props.history.push('/mister-email')
@@ -69,14 +79,19 @@ export class AppEmail extends React.Component {
             .then(this.loadMails)
     }
 
+    countUnreadEmails = () => {
+        return this.state.emails.filter(email => !email.isRead).length;
+    }
+
     render() {
         const { emails, isAddEmailShown } = this.state
         return (
             <section className="home main-layout">
                 <div className="home-filter flex justify-center">
-                    <EmailSearchFilter />
+                    <EmailSearchFilter onSearchFiltering={this.onSearchFiltering} />
                     <EmailFilterByRead onReadFiltering={this.onReadFiltering} />
-                    {/* <EmailFilterByStar onReadFiltering={this.onReadFiltering} /> */}
+                    <EmailFilterByStar onStarFiltering={this.onStarFiltering} />
+                    <EmailUnreadCount countUnreadEmails={this.countUnreadEmails()} />
                 </div>
                 <div className="main-site flex">
                     <aside>

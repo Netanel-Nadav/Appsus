@@ -20,10 +20,8 @@ const STORAGE_KEY = 'emailDB'
 
 
 function query(filterBy = null) {
-    console.log('in-Service',filterBy);
     let emails = _loadMailsFromStorage() || _createMails()
     if (emails.length === 0) emails = _createMails()
-    if (!filterBy || filterBy.isRead === undefined && filterBy.status === 'inbox') return Promise.resolve(emails)
     const filteredEmails = _getFilteredEmails(emails, filterBy)
     return Promise.resolve(filteredEmails)
 }
@@ -41,11 +39,11 @@ function toogleExpand(emailId) {
 
 
 function _getFilteredEmails(emails, filterBy) {
-    console.log(emails);
-    console.log(filterBy);
     return emails.filter(email => {
         const filterIsRead = filterBy.isRead === undefined || email.isRead === filterBy.isRead
-        return email.status === filterBy.status && filterIsRead
+        const filterBySearch = email.subject.toLowerCase().includes(filterBy.search.toLowerCase())
+        const filterByStar = filterBy.isStarred === undefined || email.isStarred == filterBy.isStarred
+        return email.status === filterBy.status && filterIsRead && filterBySearch && filterByStar
     })
 }
 
@@ -53,7 +51,6 @@ function _getFilteredEmails(emails, filterBy) {
 function moveToTrash(emailId) {
     let emails = _loadMailsFromStorage()
     let email = emails.find(email => {
-        console.log(email)
         return email.id === emailId
     })
     email.status = 'trash'
@@ -66,9 +63,8 @@ function starEmail(emailId) {
     let email = emails.find(email => {
         return email.id === emailId
     })
-    emails.sort((a, b) => b.isStarred - a.isStarred)
+    console.log(email);
     email.isStarred = !email.isStarred
-    // console.log(emails);
     _saveMailsToStorage(emails)
     return Promise.resolve()
 }
@@ -145,7 +141,7 @@ function _createMails() {
         status: 'sent',
         isRead: false,
         isStarred: false,
-        sentAt: Date.now(),
+        sentAt: new Date().toDateString(),
         to: 'natinadav932@gmail.com',
         from: 'aliBaba@gmail.shtuk',
         img: '../../../img/avatar1.svg',
@@ -158,7 +154,7 @@ function _createMails() {
         status: 'draft',
         isRead: false,
         isStarred: false,
-        sentAt: Date.now(),
+        sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
         img: '../../../img/avatar2.svg',
@@ -171,7 +167,7 @@ function _createMails() {
         status: 'sent',
         isRead: false,
         isStarred: false,
-        sentAt: Date.now(),
+        sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
         img: '../../../img/avatar2.svg',
@@ -184,7 +180,7 @@ function _createMails() {
         status: 'trash',
         isRead: false,
         isStarred: false,
-        sentAt: Date.now(),
+        sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
         img: '../../../img/avatar2.svg',
@@ -197,7 +193,7 @@ function _createMails() {
         status: 'draft',
         isRead: false,
         isStarred: false,
-        sentAt: Date.now(),
+        sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
         img: '../../../img/avatar1.svg',
@@ -210,7 +206,7 @@ function _createMails() {
         status: 'inbox',
         isRead: false,
         isStarred: false,
-        sentAt: Date.now(),
+        sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
         img: '../../../img/avatar2.svg',
@@ -223,7 +219,7 @@ function _createMails() {
         status: 'inbox',
         isRead: false,
         isStarred: false,
-        sentAt: Date.now(),
+        sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
         img: '../../../img/avatar2.svg',
@@ -236,7 +232,7 @@ function _createMails() {
         status: 'inbox',
         isRead: false,
         isStarred: false,
-        sentAt: Date.now(),
+        sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
         img: '../../../img/avatar2.svg',

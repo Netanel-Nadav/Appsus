@@ -9,8 +9,9 @@ export class EmailFilterByRead extends React.Component {
 
     handleChange = ({ target }) => {
         this.setState({filterBy: target.value})
-        const booleanVal = target.value === 'read' ? true : target.value === 'unread' ? false : undefined
-        this.props.onReadFiltering(booleanVal)
+        const isUnreadStatus = target.value === 'unread' ? false : undefined;
+        const isReadStatus = target.value === 'read' ? true : isUnreadStatus;
+        this.props.onReadFiltering(isReadStatus)
     }
 
 
@@ -20,7 +21,7 @@ export class EmailFilterByRead extends React.Component {
         return (
             <section className="filter-by-read-section">
                 <select className="select-read" value={isRead} onChange={this.handleChange} name="isRead">
-                    <option value={isRead}>Read / Unread</option>
+                    <option value={isRead}>Filter By Read</option>
                     <option value="read">Read</option>
                     <option value="unread">UnRead</option>
                 </select>
