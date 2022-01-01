@@ -21,6 +21,7 @@ export class NoteIndex extends React.Component {
 
     render() {
         const { notes } = this.state;
+        if (!notes) return <div>LOADING...</div>
         console.log('notes', notes)
         return (
             <div>

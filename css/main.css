@@ -21,10 +21,13 @@
 @import "./apps/email/email-preview.css";
 @import "./apps/email/email-list.css";
 
+/* @import "./apps/email/email-details.css";
+@import "./apps/email/email-preview.css";
+@import "./apps/email/email-list.css";
+@import "./apps/email/email-list.css"; */
 
 /* Keep CMPS */
 
 @import "./apps/keep/note-preview.css";
 @import "./apps/keep/note-list.css";
 @import "./apps/keep/note-bar.css";
-

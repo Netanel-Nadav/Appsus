@@ -9,13 +9,15 @@ export class NoteBar extends React.Component {
 
     handleChange = ({ target }) => {
         // const field = target.name
-        const value = target.value
+        const value = target.value;
         // this.setState(prevState)
-        // this.setState 
+        this.setState({ input: { txt: value } });
     }
 
     onSaveNote = (ev) => {
         ev.preventDefault();
+        console.log('hey');
+        // if (!this.state.input.txt)
     }
 
     onSetInput = (type) => {
