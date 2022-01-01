@@ -11,17 +11,14 @@ const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
 
-export function App() {
+export function BookStore() {
     return (
         <Router>
             <section className="app">
-                <AppHeader />
                 <main>
                     <Switch>
-                        <Route component={BookDetails} path="/books/:bookId" />
-                        <Route component={BookApp} path="/books" />
-                        <Route component={About} path="/about" />
-                        <Route component={Home} path="/" />
+                        <Route component={BookDetails} path="/miss-books/:bookId" />
+                        <Route component={BookApp} path="/miss-books" />
                     </Switch>
                 </main>
                 <AppFooter />

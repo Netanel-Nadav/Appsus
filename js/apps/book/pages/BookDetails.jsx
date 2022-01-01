@@ -32,7 +32,7 @@ export class BookDetails extends React.Component {
     }
 
     onGoBack = () => {
-        this.props.history.push('/books')
+        this.props.history.push('/')
     }
 
 

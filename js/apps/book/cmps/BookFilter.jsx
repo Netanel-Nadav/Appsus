@@ -26,13 +26,12 @@ export class BookFilter extends React.Component {
     render() {
         const { filterBy: { name, price } } = this.state
         return (
-            <section className="filter-container main-layout">
-                <form className='book-filter' onSubmit={this.onSubmitFilter}>
-                    <label htmlFor="by-name">By Name:</label>
-                    <input placeholder="Enter Name" type="text" id="by-name" name="name" value={name} onChange={this.handleChange} />
-                    <label htmlFor="by-price">By Price:</label>
-                    <input placeholder="Enter Price" type="number" id="by-price" min="0" name="price" value={price} onChange={this.handleChange} />
+            <section className="filter-container main-layout flex justify-center align-center">
+                <form className="book-filter flex" onSubmit={this.onSubmitFilter}>
+                        <input placeholder="Enter Name" type="text" id="by-name" name="name" value={name} onChange={this.handleChange} />
+                        <input placeholder="Enter Price" type="number" id="by-price" min="0" name="price" value={price} onChange={this.handleChange} />
                     <button className="btn">Filter</button>
+
                 </form>
             </section>
         )

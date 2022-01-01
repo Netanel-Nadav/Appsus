@@ -1,0 +1,35 @@
+.filter-container {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    
+}
+
+.filter-container form{
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.filter-container form label{
+    flex-basis: 40%;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.book-filter label{
+    margin: 0px 10px;
+    font-size: 1.1rem;
+}
+
+.book-filter input {
+    padding: 10px 50px;
+}
+
+.book-filter .input-container {
+    flex-direction: column;
+}
+
+.book-filter button {
+    padding: 10px 80px;
+}
