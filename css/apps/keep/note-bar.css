@@ -1,9 +1,20 @@
+.add-note {
+    height: 65px;
+}
+
+
 .bar-btn {
     background-color: transparent;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .bar-btn:hover {
     transform: scale(1.2);
+}
+
+
+.add-note .note-input {
+    padding: 5px 60px;
+    margin: 20px;
 }

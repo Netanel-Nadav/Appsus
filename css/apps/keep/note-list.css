@@ -1,7 +1,8 @@
 .note-list {
-    margin-top: 2rem;
+    margin: 2rem 1.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
     text-align: center;
+    min-height: 200px;
 }
