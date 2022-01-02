@@ -86,7 +86,7 @@ function saveEmail(newEmail) {
     const { subject, body, emailTo } = newEmail
     let emails = _loadMailsFromStorage();
     console.log('emails in saveEmail', emails);
-    let email = _createMail(subject, body, 'natinadav932@gmail.com', emailTo, '../../../img/avatar1.svg')
+    let email = _createMail(subject, body, 'natinadav932@gmail.com', emailTo, 'img/avatar1.svg')
     emails.unshift(email);
     _saveMailsToStorage(emails);
     return Promise.resolve()
@@ -144,7 +144,7 @@ function _createMails() {
         sentAt: new Date().toDateString(),
         to: 'natinadav932@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar1.svg',
+        img: 'img/avatar1.svg',
         isExpand: false,
     },
     {
@@ -157,7 +157,7 @@ function _createMails() {
         sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg',
+        img: 'img/avatar2.svg',
         isExpand: false,
     },
     {
@@ -170,7 +170,7 @@ function _createMails() {
         sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg',
+        img: 'img/avatar2.svg',
         isExpand: false,
     },
     {
@@ -183,7 +183,7 @@ function _createMails() {
         sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg',
+        img: 'img/avatar2.svg',
         isExpand: false,
     },
     {
@@ -196,7 +196,7 @@ function _createMails() {
         sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar1.svg',
+        img: 'img/avatar1.svg',
         isExpand: false,
     },
     {
@@ -209,7 +209,7 @@ function _createMails() {
         sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg',
+        img: 'img/avatar2.svg',
         isExpand: false,
     },
     {
@@ -222,7 +222,7 @@ function _createMails() {
         sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg',
+        img: 'img/avatar2.svg',
         isExpand: false,
     },
     {
@@ -235,7 +235,7 @@ function _createMails() {
         sentAt: new Date().toDateString(),
         to: 'rotembeneli@gmail.com',
         from: 'aliBaba@gmail.shtuk',
-        img: '../../../img/avatar2.svg',
+        img: 'img/avatar2.svg',
         isExpand: false,
     },
     ]
